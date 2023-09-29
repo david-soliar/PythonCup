@@ -23,12 +23,13 @@ for i in range(len(zviera)):
                         image=zviera[i], tags=(f"z{i}", "zviera"))
 
 canvas.create_image(100, 350,
-                    image=stopa[s], tags=(f"s{s}","stopa"))
+                    image=stopa[s], tags=(f"s{s}", "stopa"))
 canvas.update()
+
 
 def klik(event):
     z_tag = canvas.gettags("current")[0]
-    if z_tag[-1]==str(s):
+    if z_tag[-1] == str(s):
         canvas.tag_unbind("zviera", "<Button-1>")
         canvas.create_image(100, 300+nohy[s],
                             image=zviera[s], tags="pohyb_z")
@@ -42,5 +43,6 @@ def klik(event):
             canvas.after(500)
     else:
         return None
+
 
 canvas.tag_bind("zviera", "<Button-1>", klik)
