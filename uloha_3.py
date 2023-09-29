@@ -1,8 +1,8 @@
 import tkinter
 import random
 
-M = random.randint(3,5)
-N = random.randint(3,7)
+M = random.randint(3, 5)
+N = random.randint(3, 7)
 
 canvas = tkinter.Canvas(width=N*50, height=M*50)
 canvas.pack()
@@ -33,11 +33,12 @@ for i in range(duch_zobrazenie):
     canvas.after(500)
     canvas.delete("duch")
 
+
 def klik(event):
     global x, y
     c = canvas.gettags("current")[0]
     x1, y1 = stvorce[c]
-    if x==x1 and y==y1:
+    if (x == x1) and (y == y1):
         canvas.create_image(x, y, image=duch, tags="duch")
         canvas.create_text(x+20, y+20,
                            text="SUPER",
@@ -49,5 +50,6 @@ def klik(event):
                            fill="red")
 
     canvas.tag_unbind("s", "<Button-1>")
+
 
 canvas.tag_bind("s", "<Button-1>", klik)
